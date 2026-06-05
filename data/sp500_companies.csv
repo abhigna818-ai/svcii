@@ -1,0 +1,51 @@
+ticker,name,sector,industry,market_cap_b,msci_esg_rating
+XOM,ExxonMobil Corporation,Energy,Oil & Gas Integrated,440.0,BBB
+CVX,Chevron Corporation,Energy,Oil & Gas Integrated,280.0,A
+COP,ConocoPhillips,Energy,Oil & Gas E&P,140.0,BBB
+SLB,SLB (Schlumberger),Energy,Oil & Gas Equipment,70.0,A
+OXY,Occidental Petroleum,Energy,Oil & Gas E&P,55.0,BB
+PSX,Phillips 66,Energy,Oil & Gas Refining,53.0,BBB
+VLO,Valero Energy,Energy,Oil & Gas Refining,48.0,BB
+MPC,Marathon Petroleum,Energy,Oil & Gas Refining,60.0,BBB
+HAL,Halliburton Company,Energy,Oil & Gas Equipment,34.0,BBB
+BKR,Baker Hughes Company,Energy,Oil & Gas Equipment,32.0,A
+LIN,Linde plc,Materials,Industrial Gases,195.0,AA
+APD,Air Products and Chemicals,Materials,Industrial Gases,65.0,A
+ECL,Ecolab Inc.,Materials,Specialty Chemicals,55.0,AA
+DD,DuPont de Nemours,Materials,Specialty Chemicals,35.0,A
+NEM,Newmont Corporation,Materials,Gold,38.0,BBB
+GE,GE Aerospace,Industrials,Aerospace & Defense,170.0,BBB
+HON,Honeywell International,Industrials,Conglomerates,130.0,A
+MMM,3M Company,Industrials,Conglomerates,50.0,A
+CAT,Caterpillar Inc.,Industrials,Farm & Construction Machinery,160.0,A
+DE,Deere & Company,Industrials,Farm & Construction Machinery,115.0,AA
+NEE,NextEra Energy,Utilities,Utilities - Regulated Electric,130.0,AA
+DUK,Duke Energy,Utilities,Utilities - Regulated Electric,80.0,A
+SO,Southern Company,Utilities,Utilities - Regulated Electric,76.0,A
+D,Dominion Energy,Utilities,Utilities - Regulated Electric,35.0,BBB
+AEP,American Electric Power,Utilities,Utilities - Regulated Electric,45.0,A
+AAPL,Apple Inc.,Technology,Consumer Electronics,2800.0,AA
+MSFT,Microsoft Corporation,Technology,Software - Infrastructure,2900.0,AAA
+GOOGL,Alphabet Inc.,Technology,Internet Content & Information,1900.0,AA
+AMZN,Amazon.com Inc.,Technology,Internet Retail,1600.0,A
+META,Meta Platforms Inc.,Technology,Internet Content & Information,900.0,A
+JPM,JPMorgan Chase & Co.,Financials,Banks - Diversified,480.0,A
+BAC,Bank of America,Financials,Banks - Diversified,280.0,A
+WFC,Wells Fargo & Company,Financials,Banks - Diversified,200.0,BBB
+GS,Goldman Sachs Group,Financials,Capital Markets,120.0,BBB
+MS,Morgan Stanley,Financials,Capital Markets,145.0,A
+JNJ,Johnson & Johnson,Healthcare,Drug Manufacturers - General,380.0,AA
+UNH,UnitedHealth Group,Healthcare,Healthcare Plans,460.0,A
+PFE,Pfizer Inc.,Healthcare,Drug Manufacturers - General,160.0,A
+ABBV,AbbVie Inc.,Healthcare,Drug Manufacturers - General,280.0,A
+MRK,Merck & Co.,Healthcare,Drug Manufacturers - General,280.0,AA
+PG,Procter & Gamble,Consumer Staples,Household & Personal Products,360.0,AA
+KO,Coca-Cola Company,Consumer Staples,Beverages - Non-Alcoholic,260.0,AA
+PEP,PepsiCo Inc.,Consumer Staples,Beverages - Non-Alcoholic,220.0,AA
+WMT,Walmart Inc.,Consumer Discretionary,Discount Stores,420.0,A
+COST,Costco Wholesale,Consumer Discretionary,Discount Stores,310.0,AA
+HD,Home Depot Inc.,Consumer Discretionary,Home Improvement Retail,330.0,A
+NKE,Nike Inc.,Consumer Discretionary,Footwear & Accessories,110.0,A
+TSLA,Tesla Inc.,Consumer Discretionary,Auto Manufacturers,600.0,BBB
+RTX,RTX Corporation,Industrials,Aerospace & Defense,150.0,A
+LMT,Lockheed Martin,Industrials,Aerospace & Defense,105.0,BBB

@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: svcii-api
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        value: ./data/svcii.db
+      - key: CORS_ORIGINS
+        value: https://svcii.vercel.app,http://localhost:3000
+      - key: ANTHROPIC_API_KEY
+        sync: false
+    disk:
+      name: svcii-data
+      mountPath: /opt/render/project/src/data
+      sizeGB: 1
