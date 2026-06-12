@@ -37,6 +37,7 @@ app.add_middleware(
 @app.on_event("startup")
 async def startup():
     db.init_db()
+    db.seed_if_empty()
 
 
 @app.get("/health")
@@ -340,3 +341,31 @@ def methodology(request: Request):
             },
         ],
     )
+
+
+# ---------------------------------------------------------------------------
+# Alias endpoints expected by the frontend / Railway deploy
+# ---------------------------------------------------------------------------
+
+@app.get("/api/company/{ticker}", response_model=models.SVCIIScore)
+@limiter.limit("20/minute")
+def get_company_alias(request: Request, ticker: str):
+    return get_company(request, ticker)
+
+
+@app.get("/api/leaderboard", response_model=models.Leaderboard)
+@limiter.limit("20/minute")
+def leaderboard_alias(request: Request):
+    return leaderboard(request)
+
+
+@app.get("/api/sectors", response_model=list[models.SectorScore])
+@limiter.limit("20/minute")
+def sectors_alias(request: Request):
+    return by_sector(request)
+
+
+@app.get("/api/scores", response_model=list[models.ScoreDistribution])
+@limiter.limit("20/minute")
+def scores_alias(request: Request):
+    return score_distribution(request)
