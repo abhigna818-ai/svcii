@@ -4,7 +4,7 @@ from contextlib import contextmanager
 from typing import Generator
 from datetime import datetime, UTC
 
-DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "svcii.db")
+DB_PATH = os.environ.get("DB_PATH", "/tmp/svcii.db")
 
 
 def get_db_path() -> str:
