@@ -165,6 +165,30 @@ def get_claims(request: Request, ticker: str):
     return result
 
 
+@app.get("/api/companies/{ticker}/risk", response_model=models.RiskAssessment)
+@limiter.limit("20/minute")
+def get_risk(request: Request, ticker: str):
+    company = db.get_company(ticker)
+    if not company:
+        raise HTTPException(status_code=404, detail=f"Company '{ticker}' not found")
+
+    risk = db.get_risk_assessment(ticker)
+    if not risk:
+        raise HTTPException(status_code=404, detail=f"No risk assessment available for '{ticker}'")
+    return models.RiskAssessment(**risk)
+
+
+@app.get("/api/companies/{ticker}/satellite", response_model=list[models.SatelliteReading])
+@limiter.limit("20/minute")
+def get_satellite(request: Request, ticker: str):
+    company = db.get_company(ticker)
+    if not company:
+        raise HTTPException(status_code=404, detail=f"Company '{ticker}' not found")
+
+    readings = db.get_satellite_readings(ticker)
+    return [models.SatelliteReading(**dict(r)) for r in readings]
+
+
 @app.get("/api/companies/{ticker}/facilities", response_model=list[models.Facility])
 @limiter.limit("20/minute")
 def get_facilities(request: Request, ticker: str):
@@ -351,6 +375,12 @@ def methodology(request: Request):
 @limiter.limit("20/minute")
 def get_company_alias(request: Request, ticker: str):
     return get_company(request, ticker)
+
+
+@app.get("/api/company/{ticker}/risk", response_model=models.RiskAssessment)
+@limiter.limit("20/minute")
+def get_risk_alias(request: Request, ticker: str):
+    return get_risk(request, ticker)
 
 
 @app.get("/api/leaderboard", response_model=models.Leaderboard)

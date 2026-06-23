@@ -3,10 +3,10 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const LINKS = [
-  { href: '/',             label: 'Search' },
   { href: '/explore',      label: 'Explore' },
   { href: '/methodology',  label: 'Methodology' },
   { href: '/about',        label: 'About' },
+  { href: 'https://github.com/abhigna818-ai/svcii', label: 'GitHub', external: true },
 ];
 
 export default function Nav() {
@@ -18,12 +18,15 @@ export default function Nav() {
         <ul className="nav-links">
           {LINKS.map(l => (
             <li key={l.href}>
-              <Link
-                href={l.href}
-                className={path === l.href ? 'active' : ''}
-              >
-                {l.label}
-              </Link>
+              {l.external ? (
+                <a href={l.href} target="_blank" rel="noopener noreferrer">
+                  {l.label}
+                </a>
+              ) : (
+                <Link href={l.href} className={path === l.href ? 'active' : ''}>
+                  {l.label}
+                </Link>
+              )}
             </li>
           ))}
         </ul>

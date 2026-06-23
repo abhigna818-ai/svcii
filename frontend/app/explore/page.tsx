@@ -27,15 +27,15 @@ function FilterSelect({
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
       <label style={{ fontSize: '0.625rem', fontWeight: 600, letterSpacing: '0.1em',
-        textTransform: 'uppercase', color: 'var(--muted)' }}>
+        textTransform: 'uppercase', color: 'var(--text-muted)' }}>
         {label}
       </label>
       <select
         value={value}
         onChange={e => onChange(e.target.value)}
-        style={{ padding: '0.5rem 0.75rem', fontFamily: 'var(--font-body)', fontSize: '0.875rem',
-          background: 'var(--paper-2)', border: '1px solid var(--paper-3)', borderRadius: 'var(--radius)',
-          color: 'var(--ink)', cursor: 'pointer' }}
+        style={{ padding: '0.5rem 0.75rem', fontFamily: 'var(--font-sans)', fontSize: '0.875rem',
+          background: 'var(--bg-elevated)', border: '1px solid var(--border)', borderRadius: 'var(--radius)',
+          color: 'var(--text-primary)', cursor: 'pointer' }}
       >
         <option value="">All</option>
         {options.map(o => <option key={o} value={o}>{o}</option>)}
@@ -85,34 +85,34 @@ export default function ExplorePage() {
   return (
     <div className="container" style={{ paddingTop: '2.5rem', paddingBottom: '3rem' }}>
       <h1 style={{ marginBottom: '0.5rem' }}>Explore the Dataset</h1>
-      <p style={{ color: 'var(--muted)', fontSize: '0.9375rem', marginBottom: '2rem' }}>
+      <p style={{ color: 'var(--text-muted)', fontSize: '0.9375rem', marginBottom: '2rem' }}>
         {companies.length} compan{companies.length === 1 ? 'y' : 'ies'} · sortable by any column
       </p>
 
       {/* Filters */}
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'flex-end',
-        marginBottom: '1.5rem', padding: '1.25rem', background: 'var(--paper-2)',
+        marginBottom: '1.5rem', padding: '1.25rem', background: 'var(--bg-elevated)',
         border: 'var(--border)', borderRadius: 'var(--radius)' }}>
         <FilterSelect label="Sector" value={sector} options={SECTORS} onChange={setSector} />
         <FilterSelect label="Classification" value={classification} options={CLASSIFICATIONS} onChange={setClass} />
         <FilterSelect label="Metric type" value={metricType} options={METRIC_TYPES} onChange={setMetric} />
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
           <label style={{ fontSize: '0.625rem', fontWeight: 600, letterSpacing: '0.1em',
-            textTransform: 'uppercase', color: 'var(--muted)' }}>
+            textTransform: 'uppercase', color: 'var(--text-muted)' }}>
             Score range
           </label>
           <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
             <input type="number" min={0} max={100} placeholder="Min" value={minScore}
               onChange={e => setMinScore(e.target.value)}
               style={{ width: '64px', padding: '0.5rem', fontFamily: 'var(--font-mono)', fontSize: '0.875rem',
-                background: 'var(--paper)', border: '1px solid var(--paper-3)', borderRadius: 'var(--radius)',
-                color: 'var(--ink)' }} />
-            <span style={{ color: 'var(--muted)', fontSize: '0.75rem' }}>–</span>
+                background: 'var(--bg-base)', border: '1px solid var(--border)', borderRadius: 'var(--radius)',
+                color: 'var(--text-primary)' }} />
+            <span style={{ color: 'var(--text-muted)', fontSize: '0.75rem' }}>–</span>
             <input type="number" min={0} max={100} placeholder="Max" value={maxScore}
               onChange={e => setMaxScore(e.target.value)}
               style={{ width: '64px', padding: '0.5rem', fontFamily: 'var(--font-mono)', fontSize: '0.875rem',
-                background: 'var(--paper)', border: '1px solid var(--paper-3)', borderRadius: 'var(--radius)',
-                color: 'var(--ink)' }} />
+                background: 'var(--bg-base)', border: '1px solid var(--border)', borderRadius: 'var(--radius)',
+                color: 'var(--text-primary)' }} />
           </div>
         </div>
         {hasFilters && (
@@ -123,7 +123,7 @@ export default function ExplorePage() {
       </div>
 
       {/* Table */}
-      <div style={{ border: '1px solid var(--paper-3)', borderRadius: 'var(--radius)', overflow: 'hidden' }}>
+      <div style={{ border: '1px solid var(--border)', borderRadius: 'var(--radius)', overflow: 'hidden' }}>
         {loading ? (
           <div style={{ padding: '3rem', textAlign: 'center' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
@@ -133,7 +133,7 @@ export default function ExplorePage() {
             </div>
           </div>
         ) : error ? (
-          <div style={{ padding: '3rem', textAlign: 'center', color: 'var(--signal-red)',
+          <div style={{ padding: '3rem', textAlign: 'center', color: 'var(--red)',
             fontSize: '0.875rem' }}>
             {error}
           </div>
@@ -142,7 +142,7 @@ export default function ExplorePage() {
         )}
       </div>
 
-      <p style={{ fontSize: '0.6875rem', color: 'var(--muted)', marginTop: '1rem',
+      <p style={{ fontSize: '0.6875rem', color: 'var(--text-muted)', marginTop: '1rem',
         fontFamily: 'var(--font-mono)' }}>
         Data vintage: 2023–2024 · Satellite sources: Sentinel-5P TROPOMI, NASA VIIRS, ESA WorldCover
       </p>

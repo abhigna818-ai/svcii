@@ -159,3 +159,26 @@ class StatsResponse(BaseModel):
     inconclusive_count: int
     warrants_investigation_count: int
     major_divergence_count: int
+    claims_verified: int = 0
+
+
+class RiskAssessment(BaseModel):
+    ticker: str
+    regulatory_risk: str
+    risk_factors: list[str]
+    esg_fund_exposure_note: str
+    satellite_vs_claim_summary: str
+
+
+class SatelliteReading(BaseModel):
+    id: int
+    ticker: str
+    facility_id: Optional[int] = None
+    source: str
+    metric: str
+    value: float
+    unit: Optional[str] = None
+    period_start: Optional[str] = None
+    period_end: Optional[str] = None
+    latitude: Optional[float] = None
+    longitude: Optional[float] = None

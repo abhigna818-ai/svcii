@@ -69,8 +69,8 @@ export default function SearchBar() {
           type="search"
           value={query}
           onChange={e => { setQuery(e.target.value); setActiveIdx(-1); }}
-          onFocus={(e) => { e.currentTarget.style.borderColor = 'var(--accent)'; results.length > 0 && setOpen(true); }}
-          onBlur={(e) => { e.currentTarget.style.borderColor = 'var(--paper-3)'; }}
+          onFocus={(e) => { e.currentTarget.style.borderColor = 'var(--green-primary)'; results.length > 0 && setOpen(true); }}
+          onBlur={(e) => { e.currentTarget.style.borderColor = 'var(--border)'; }}
           onKeyDown={handleKeyDown}
           placeholder="Search any S&P 500 company by name or ticker..."
           aria-label="Search companies"
@@ -79,19 +79,19 @@ export default function SearchBar() {
           style={{
             width: '100%',
             padding: '0.875rem 1.25rem',
-            fontFamily: 'var(--font-body)',
+            fontFamily: 'var(--font-sans)',
             fontSize: '1rem',
-            background: 'var(--paper-2)',
-            border: '1px solid var(--paper-3)',
+            background: 'var(--bg-elevated)',
+            border: '1px solid var(--border)',
             borderRadius: 'var(--radius)',
-            color: 'var(--ink)',
+            color: 'var(--text-primary)',
             outline: 'none',
             transition: 'border-color 150ms',
           }}
         />
         {loading && (
           <span style={{ position: 'absolute', right: '1rem', top: '50%', transform: 'translateY(-50%)',
-            fontSize: '0.75rem', color: 'var(--muted)' }}>
+            fontSize: '0.75rem', color: 'var(--text-muted)' }}>
             Searching...
           </span>
         )}
@@ -106,8 +106,8 @@ export default function SearchBar() {
             top: 'calc(100% + 4px)',
             left: 0,
             right: 0,
-            background: 'var(--paper)',
-            border: '1px solid var(--paper-3)',
+            background: 'var(--bg-base)',
+            border: '1px solid var(--border)',
             borderRadius: 'var(--radius)',
             boxShadow: '0 4px 24px rgba(0,0,0,0.12)',
             zIndex: 200,
@@ -125,24 +125,24 @@ export default function SearchBar() {
                 alignItems: 'center',
                 width: '100%',
                 padding: '0.75rem 1rem',
-                background: i === activeIdx ? 'var(--paper-2)' : 'transparent',
+                background: i === activeIdx ? 'var(--bg-elevated)' : 'transparent',
                 border: 'none',
-                borderBottom: i < results.length - 1 ? '1px solid var(--paper-3)' : 'none',
+                borderBottom: i < results.length - 1 ? '1px solid var(--border)' : 'none',
                 cursor: 'pointer',
                 textAlign: 'left',
                 gap: '0.75rem',
                 transition: 'background 100ms',
               }}
-              onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = 'var(--paper-2)'; setActiveIdx(i); }}
+              onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = 'var(--bg-elevated)'; setActiveIdx(i); }}
               onMouseLeave={e => { if (activeIdx !== i) (e.currentTarget as HTMLButtonElement).style.background = 'transparent'; }}
             >
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8125rem', fontWeight: 500,
-                color: 'var(--accent)', minWidth: '3rem' }}>
+                color: 'var(--green-primary)', minWidth: '3rem' }}>
                 {r.ticker}
               </span>
-              <span style={{ flex: 1, fontSize: '0.875rem', color: 'var(--ink)' }}>{r.name}</span>
+              <span style={{ flex: 1, fontSize: '0.875rem', color: 'var(--text-primary)' }}>{r.name}</span>
               {r.sector && (
-                <span style={{ fontSize: '0.75rem', color: 'var(--muted)', whiteSpace: 'nowrap' }}>
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', whiteSpace: 'nowrap' }}>
                   {r.sector}
                 </span>
               )}

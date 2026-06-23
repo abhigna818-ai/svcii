@@ -89,8 +89,8 @@ export default function FacilityMap({ facilities, height = 360 }: Props) {
   if (facilities.length === 0) {
     return (
       <div style={{ height, display: 'flex', alignItems: 'center', justifyContent: 'center',
-        background: 'var(--paper-2)', border: 'var(--border)', borderRadius: 'var(--radius)',
-        color: 'var(--muted)', fontSize: '0.875rem' }}>
+        background: 'var(--bg-elevated)', border: 'var(--border)', borderRadius: 'var(--radius)',
+        color: 'var(--text-muted)', fontSize: '0.875rem' }}>
         No facility locations available
       </div>
     );
@@ -99,13 +99,13 @@ export default function FacilityMap({ facilities, height = 360 }: Props) {
   return (
     <div style={{ position: 'relative' }}>
       <div ref={mapRef} style={{ height, borderRadius: 'var(--radius)', overflow: 'hidden',
-        border: '1px solid var(--paper-3)' }} />
+        border: '1px solid var(--border)' }} />
       <div style={{ position: 'absolute', bottom: '8px', left: '8px', background: 'rgba(245,242,235,0.95)',
-        border: '1px solid var(--paper-3)', borderRadius: '2px', padding: '4px 8px',
-        fontSize: '0.625rem', color: 'var(--muted)', fontFamily: 'var(--font-mono)', zIndex: 400 }}>
-        <span style={{ color: 'var(--signal-grn)' }}>● </span>XCH4 decreasing &nbsp;
-        <span style={{ color: 'var(--signal-amb)' }}>● </span>stable &nbsp;
-        <span style={{ color: 'var(--signal-red)' }}>● </span>increasing
+        border: '1px solid var(--border)', borderRadius: '2px', padding: '4px 8px',
+        fontSize: '0.625rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', zIndex: 400 }}>
+        <span style={{ color: 'var(--green-primary)' }}>● </span>XCH4 decreasing &nbsp;
+        <span style={{ color: 'var(--orange)' }}>● </span>stable &nbsp;
+        <span style={{ color: 'var(--red)' }}>● </span>increasing
       </div>
     </div>
   );

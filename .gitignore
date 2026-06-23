@@ -4,3 +4,6 @@ __pycache__/
 .env.local
 *.pyc
 .venv/
+data/raw_pdfs/
+data/claims/
+data/scores/

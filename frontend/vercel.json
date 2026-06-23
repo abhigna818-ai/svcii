@@ -3,7 +3,7 @@
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
   "env": {
-    "NEXT_PUBLIC_API_URL": "https://svcii-api.onrender.com"
+    "NEXT_PUBLIC_API_URL": "https://svcii-1.onrender.com"
   },
   "headers": [
     {

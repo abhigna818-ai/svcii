@@ -10,11 +10,11 @@ interface Props {
 }
 
 function scoreColor(score: number | null): string {
-  if (score == null) return 'var(--muted)';
-  if (score >= 80) return 'var(--signal-grn)';
-  if (score >= 60) return 'var(--signal-amb)';
-  if (score >= 40) return 'var(--signal-amb)';
-  return 'var(--signal-red)';
+  if (score == null) return 'var(--text-muted)';
+  if (score >= 80) return 'var(--green-primary)';
+  if (score >= 60) return 'var(--yellow)';
+  if (score >= 40) return 'var(--orange)';
+  return 'var(--red)';
 }
 
 export default function CompanyCard({ company, rank }: Props) {
@@ -26,17 +26,17 @@ export default function CompanyCard({ company, rank }: Props) {
     >
       <div className="card" style={{ display: 'flex', alignItems: 'center', gap: '1rem', cursor: 'pointer' }}>
         {rank != null && (
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--muted)',
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--text-muted)',
             minWidth: '1.5rem', textAlign: 'right' }}>
             {rank}
           </span>
         )}
         <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '1rem',
-            color: 'var(--ink)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+          <div style={{ fontFamily: 'var(--font-sans)', fontWeight: 600, fontSize: '1rem',
+            color: 'var(--text-primary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
             {company.name}
           </div>
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--muted)',
+          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--text-muted)',
             marginTop: '0.125rem' }}>
             {company.ticker}
             {company.sector && <> · {company.sector}</>}
@@ -44,7 +44,7 @@ export default function CompanyCard({ company, rank }: Props) {
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.375rem',
           flexShrink: 0 }}>
-          <span style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 700,
+          <span style={{ fontFamily: 'var(--font-sans)', fontSize: '1.5rem', fontWeight: 700,
             color: scoreColor(company.svcii), lineHeight: 1 }}>
             {company.svcii != null ? company.svcii.toFixed(1) : '—'}
           </span>

@@ -10,10 +10,10 @@ interface Props {
 }
 
 function scoreColor(c: Classification | null): string {
-  if (!c) return 'var(--ink)';
-  if (c === 'CONSISTENT') return 'var(--signal-grn)';
-  if (c === 'MAJOR DIVERGENCE') return 'var(--signal-red)';
-  return 'var(--signal-amb)';
+  if (!c) return 'var(--text-primary)';
+  if (c === 'CONSISTENT') return 'var(--green-primary)';
+  if (c === 'MAJOR DIVERGENCE') return 'var(--red)';
+  return 'var(--orange)';
 }
 
 export default function ScoreDisplay({ score, classification, label, size = 'lg' }: Props) {
@@ -23,14 +23,14 @@ export default function ScoreDisplay({ score, classification, label, size = 'lg'
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'flex-start' }}>
       {label && (
-        <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.625rem', fontWeight: 600,
-          letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--muted)' }}>
+        <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.625rem', fontWeight: 600,
+          letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--text-muted)' }}>
           {label}
         </span>
       )}
       <span
         style={{
-          fontFamily: 'var(--font-display)',
+          fontFamily: 'var(--font-sans)',
           fontSize,
           fontWeight: 700,
           color,

@@ -7,10 +7,10 @@ interface Props {
 }
 
 function scoreColor(score: number): string {
-  if (score >= 80) return 'var(--signal-grn)';
-  if (score >= 60) return 'var(--signal-amb)';
-  if (score >= 40) return 'var(--signal-amb)';
-  return 'var(--signal-red)';
+  if (score >= 80) return 'var(--green-primary)';
+  if (score >= 60) return 'var(--orange)';
+  if (score >= 40) return 'var(--orange)';
+  return 'var(--red)';
 }
 
 export default function SectorGrid({ sectors }: Props) {
@@ -20,8 +20,8 @@ export default function SectorGrid({ sectors }: Props) {
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
         gap: '1px',
-        background: 'var(--paper-3)',
-        border: '1px solid var(--paper-3)',
+        background: 'var(--border)',
+        border: '1px solid var(--border)',
         borderRadius: 'var(--radius)',
         overflow: 'hidden',
       }}
@@ -34,23 +34,23 @@ export default function SectorGrid({ sectors }: Props) {
         >
           <div
             style={{
-              background: 'var(--paper-2)',
+              background: 'var(--bg-elevated)',
               padding: '1.25rem',
               transition: 'background 150ms',
               cursor: 'pointer',
             }}
-            onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.background = 'var(--paper-3)'; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.background = 'var(--paper-2)'; }}
+            onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.background = 'var(--border)'; }}
+            onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.background = 'var(--bg-elevated)'; }}
           >
-            <div style={{ fontSize: '0.75rem', color: 'var(--muted)', marginBottom: '0.5rem',
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '0.5rem',
               fontWeight: 500, lineHeight: 1.3 }}>
               {s.sector}
             </div>
-            <div style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', fontWeight: 700,
+            <div style={{ fontFamily: 'var(--font-sans)', fontSize: '2rem', fontWeight: 700,
               color: scoreColor(s.avg_svcii), lineHeight: 1 }}>
               {s.avg_svcii.toFixed(1)}
             </div>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.625rem', color: 'var(--muted)',
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.625rem', color: 'var(--text-muted)',
               marginTop: '0.375rem' }}>
               {s.company_count} co. · avg SVCII
             </div>

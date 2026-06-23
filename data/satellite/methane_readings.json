@@ -1,0 +1,54 @@
+[
+  {
+    "ticker": "XOM",
+    "facility": "Permian Basin",
+    "latitude": 31.5,
+    "longitude": -103.5,
+    "status": "partial",
+    "reason": "Climate TRACE API exposed only one reporting year (2024) per asset via this endpoint \u2014 no 2020-2023 trend could be computed without the bulk CSV download. See script docstring.",
+    "source": "Climate TRACE (climatetrace.org)",
+    "matched_assets": 19,
+    "ch4_tonnes_by_year": {
+      "2024": 2029442.1
+    }
+  },
+  {
+    "ticker": "CVX",
+    "facility": "Permian Basin",
+    "latitude": 31.8,
+    "longitude": -102.9,
+    "status": "partial",
+    "reason": "Climate TRACE API exposed only one reporting year (2024) per asset via this endpoint \u2014 no 2020-2023 trend could be computed without the bulk CSV download. See script docstring.",
+    "source": "Climate TRACE (climatetrace.org)",
+    "matched_assets": 15,
+    "ch4_tonnes_by_year": {
+      "2024": 1394668.0
+    }
+  },
+  {
+    "ticker": "COP",
+    "facility": "Eagle Ford",
+    "latitude": 28.8,
+    "longitude": -99.2,
+    "status": "partial",
+    "reason": "Climate TRACE API exposed only one reporting year (2024) per asset via this endpoint \u2014 no 2020-2023 trend could be computed without the bulk CSV download. See script docstring.",
+    "source": "Climate TRACE (climatetrace.org)",
+    "matched_assets": 8,
+    "ch4_tonnes_by_year": {
+      "2024": 617543.5
+    }
+  },
+  {
+    "ticker": "NEE",
+    "facility": "Florida",
+    "latitude": 26.4,
+    "longitude": -80.1,
+    "status": "partial",
+    "reason": "Climate TRACE API exposed only one reporting year (2024) per asset via this endpoint \u2014 no 2020-2023 trend could be computed without the bulk CSV download. See script docstring.",
+    "source": "Climate TRACE (climatetrace.org)",
+    "matched_assets": 24,
+    "ch4_tonnes_by_year": {
+      "2024": 2737.3
+    }
+  }
+]

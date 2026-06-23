@@ -1,0 +1,46 @@
+[
+  {
+    "ticker": "XOM",
+    "facility": "Permian Basin",
+    "latitude": 31.5,
+    "longitude": -103.5,
+    "status": "pending",
+    "reason": "No NASA Earthdata token (EARTHDATA_TOKEN) or EOG credentials (EOG_USER/EOG_PASS) configured, and EOG's public composite endpoint now requires interactive login. See script docstring for free registration steps.",
+    "source": "NASA VIIRS Black Marble / EOG VNL",
+    "treatment_radius_km": 10,
+    "control_radius_km": 50
+  },
+  {
+    "ticker": "CVX",
+    "facility": "Permian Basin",
+    "latitude": 31.8,
+    "longitude": -102.9,
+    "status": "pending",
+    "reason": "No NASA Earthdata token (EARTHDATA_TOKEN) or EOG credentials (EOG_USER/EOG_PASS) configured, and EOG's public composite endpoint now requires interactive login. See script docstring for free registration steps.",
+    "source": "NASA VIIRS Black Marble / EOG VNL",
+    "treatment_radius_km": 10,
+    "control_radius_km": 50
+  },
+  {
+    "ticker": "COP",
+    "facility": "Eagle Ford",
+    "latitude": 28.8,
+    "longitude": -99.2,
+    "status": "pending",
+    "reason": "No NASA Earthdata token (EARTHDATA_TOKEN) or EOG credentials (EOG_USER/EOG_PASS) configured, and EOG's public composite endpoint now requires interactive login. See script docstring for free registration steps.",
+    "source": "NASA VIIRS Black Marble / EOG VNL",
+    "treatment_radius_km": 10,
+    "control_radius_km": 50
+  },
+  {
+    "ticker": "NEE",
+    "facility": "Florida",
+    "latitude": 26.4,
+    "longitude": -80.1,
+    "status": "pending",
+    "reason": "No NASA Earthdata token (EARTHDATA_TOKEN) or EOG credentials (EOG_USER/EOG_PASS) configured, and EOG's public composite endpoint now requires interactive login. See script docstring for free registration steps.",
+    "source": "NASA VIIRS Black Marble / EOG VNL",
+    "treatment_radius_km": 10,
+    "control_radius_km": 50
+  }
+]

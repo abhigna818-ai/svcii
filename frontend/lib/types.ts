@@ -141,4 +141,5 @@ export interface StatsResponse {
   inconclusive_count: number;
   warrants_investigation_count: number;
   major_divergence_count: number;
+  claims_verified: number;
 }

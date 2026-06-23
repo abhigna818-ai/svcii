@@ -16,9 +16,9 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 
 function CodeBlock({ children }: { children: string }) {
   return (
-    <pre style={{ background: 'var(--paper-2)', border: '1px solid var(--paper-3)', borderRadius: '2px',
+    <pre style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border)', borderRadius: '2px',
       padding: '1.25rem', overflowX: 'auto', fontFamily: 'var(--font-mono)', fontSize: '0.8125rem',
-      lineHeight: 1.7, color: 'var(--ink)', marginTop: '1rem', marginBottom: '1rem' }}>
+      lineHeight: 1.7, color: 'var(--text-primary)', marginTop: '1rem', marginBottom: '1rem' }}>
       <code>{children}</code>
     </pre>
   );
@@ -28,19 +28,19 @@ export default function MethodologyPage() {
   return (
     <div className="container-narrow" style={{ paddingTop: '2.5rem', paddingBottom: '4rem' }}>
       <h1 style={{ marginBottom: '0.5rem' }}>Methodology</h1>
-      <p style={{ color: 'var(--muted)', marginBottom: '3rem', lineHeight: 1.7 }}>
+      <p style={{ color: 'var(--text-muted)', marginBottom: '3rem', lineHeight: 1.7 }}>
         SVCII computes a single reproducible score (0–100) by comparing corporate ESG claims against
         independently observable satellite data. Two users running the same query on the same data
         vintage will always get the same result.
       </p>
 
       <Section title="Formula">
-        <div style={{ background: 'var(--paper-2)', border: '1px solid var(--paper-3)',
+        <div style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border)',
           borderRadius: '2px', padding: '1.5rem', marginBottom: '1.5rem' }}>
-          <div style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', marginBottom: '0.5rem' }}>
+          <div style={{ fontFamily: 'var(--font-sans)', fontSize: '1.25rem', marginBottom: '0.5rem' }}>
             SVCII = 0.6 × E-Score + 0.4 × S-Score
           </div>
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--muted)' }}>
+          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--text-muted)' }}>
             If no verifiable social claims exist: SVCII = E-Score (E-only mode)
           </div>
         </div>
@@ -52,7 +52,7 @@ export default function MethodologyPage() {
           atmospheric satellite observations. It has four components:
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px',
-          background: 'var(--paper-3)', marginBottom: '1.5rem', border: '1px solid var(--paper-3)',
+          background: 'var(--border)', marginBottom: '1.5rem', border: '1px solid var(--border)',
           borderRadius: '2px', overflow: 'hidden' }}>
           {[
             ['Trend Direction Agreement', '40 pts', 'Does the direction of satellite XCH4 change match the claimed direction? Full credit if yes, half if satellite is flat, zero if opposite.'],
@@ -60,14 +60,14 @@ export default function MethodologyPage() {
             ['Temporal Consistency', '20 pts', 'Is the trend stable over the full claim period, not just the endpoints? Computed from direction-change frequency across quarterly readings.'],
             ['Disclosure Quality', '10 pts', 'Is the claim absolute (tonnes of emissions) or intensity-based (per unit output)? Absolute = 10 pts, intensity = 0 pts, with an additional −10 penalty.'],
           ].map(([name, pts, desc]) => (
-            <div key={name} style={{ background: 'var(--paper-2)', padding: '1rem 1.25rem' }}>
+            <div key={name} style={{ background: 'var(--bg-elevated)', padding: '1rem 1.25rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
                 marginBottom: '0.375rem' }}>
                 <span style={{ fontWeight: 500, fontSize: '0.875rem' }}>{name}</span>
                 <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem',
-                  color: 'var(--accent)', fontWeight: 500 }}>{pts}</span>
+                  color: 'var(--green-primary)', fontWeight: 500 }}>{pts}</span>
               </div>
-              <p style={{ fontSize: '0.8125rem', color: 'var(--muted)', lineHeight: 1.6 }}>{desc}</p>
+              <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>{desc}</p>
             </div>
           ))}
         </div>
@@ -95,20 +95,20 @@ if metric_type == 'intensity': raw_score -= 10  # additional penalty`}</CodeBloc
           the community component is weighted higher.
         </p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1px',
-          background: 'var(--paper-3)', marginBottom: '1.5rem', border: '1px solid var(--paper-3)',
+          background: 'var(--border)', marginBottom: '1.5rem', border: '1px solid var(--border)',
           borderRadius: '2px', overflow: 'hidden' }}>
           {[
             ['Land Integrity Score (LIS)', 'ESA WorldCover', 'Fraction of natural land cover (tree, shrub, grassland, wetland) within a 25 km buffer of each facility. Computed from ESA WorldCover 2020/2021 10 m GeoTIFFs.'],
             ['Community Prosperity Score (CPS)', 'NASA VIIRS', 'Annual mean nighttime radiance (nW/cm²/sr) within facility buffer zones. Diff-in-diff vs. regional baseline normalised to 0–100. Source: NASA Black Marble VNP46A4 annual composite.'],
             ['Supply Chain Land Use Score (SLUS)', 'ESA WorldCover', 'Land cover composition (cropland vs. forest vs. urban) around supply chain facility coordinates. Penalises high conversion of natural land.'],
           ].map(([name, src, desc]) => (
-            <div key={name} style={{ background: 'var(--paper-2)', padding: '1rem 1.25rem',
+            <div key={name} style={{ background: 'var(--bg-elevated)', padding: '1rem 1.25rem',
               display: 'flex', gap: '1rem' }}>
               <div style={{ flex: 1 }}>
                 <div style={{ fontWeight: 500, fontSize: '0.875rem', marginBottom: '0.25rem' }}>{name}</div>
-                <p style={{ fontSize: '0.8125rem', color: 'var(--muted)', lineHeight: 1.6 }}>{desc}</p>
+                <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>{desc}</p>
               </div>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.625rem', color: 'var(--muted)',
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.625rem', color: 'var(--text-muted)',
                 whiteSpace: 'nowrap', marginTop: '0.25rem' }}>{src}</span>
             </div>
           ))}
@@ -117,21 +117,21 @@ if metric_type == 'intensity': raw_score -= 10  # additional penalty`}</CodeBloc
 
       <Section title="Classification">
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1px',
-          background: 'var(--paper-3)', border: '1px solid var(--paper-3)', borderRadius: '2px',
+          background: 'var(--border)', border: '1px solid var(--border)', borderRadius: '2px',
           overflow: 'hidden' }}>
           {[
-            ['≥ 80', 'CONSISTENT',              'var(--signal-grn)', 'Satellite data directionally consistent with ESG claims across all components.'],
-            ['60–79','INCONCLUSIVE',             'var(--signal-amb)', 'Mixed signals. Directional agreement but notable magnitude or temporal discrepancies.'],
-            ['40–59','WARRANTS INVESTIGATION',   'var(--signal-amb)', 'Notable divergence between claimed and observed trends. Warrants further scrutiny.'],
-            ['< 40', 'MAJOR DIVERGENCE',         'var(--signal-red)', 'Satellite data significantly contradicts stated ESG claims.'],
+            ['≥ 80', 'CONSISTENT',              'var(--green-primary)', 'Satellite data directionally consistent with ESG claims across all components.'],
+            ['60–79','INCONCLUSIVE',             'var(--orange)', 'Mixed signals. Directional agreement but notable magnitude or temporal discrepancies.'],
+            ['40–59','WARRANTS INVESTIGATION',   'var(--orange)', 'Notable divergence between claimed and observed trends. Warrants further scrutiny.'],
+            ['< 40', 'MAJOR DIVERGENCE',         'var(--red)', 'Satellite data significantly contradicts stated ESG claims.'],
           ].map(([range, label, color, desc]) => (
-            <div key={label} style={{ background: 'var(--paper-2)', padding: '1rem 1.25rem',
+            <div key={label} style={{ background: 'var(--bg-elevated)', padding: '1rem 1.25rem',
               display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--muted)',
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--text-muted)',
                 minWidth: '3.5rem', marginTop: '0.25rem' }}>{range}</span>
               <span className="badge" style={{ color, borderColor: color, flexShrink: 0,
                 marginTop: '0.125rem' }}>{label}</span>
-              <p style={{ fontSize: '0.8125rem', color: 'var(--muted)', lineHeight: 1.6, margin: 0 }}>{desc}</p>
+              <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', lineHeight: 1.6, margin: 0 }}>{desc}</p>
             </div>
           ))}
         </div>
@@ -175,9 +175,9 @@ if metric_type == 'intensity': raw_score -= 10  # additional penalty`}</CodeBloc
               <a href={s.url} target="_blank" rel="noopener noreferrer"
                 style={{ fontWeight: 500, fontSize: '0.9375rem' }}>{s.name}</a>
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.625rem',
-                color: 'var(--muted)' }}>{s.vintage}</span>
+                color: 'var(--text-muted)' }}>{s.vintage}</span>
             </div>
-            <p style={{ fontSize: '0.875rem', color: 'var(--muted)', lineHeight: 1.6 }}>{s.desc}</p>
+            <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>{s.desc}</p>
           </div>
         ))}
       </Section>
@@ -192,7 +192,7 @@ if metric_type == 'intensity': raw_score -= 10  # additional penalty`}</CodeBloc
             'WorldCover and VIIRS data represent the 2020–2021 and 2020–2023 periods respectively. Changes after these vintages are not captured.',
             'Only companies with publicly available ESG reports and facility coordinates are included. Data gaps may bias sector averages.',
           ].map((l, i) => (
-            <li key={i} style={{ fontSize: '0.875rem', lineHeight: 1.7, color: 'var(--muted)' }}>{l}</li>
+            <li key={i} style={{ fontSize: '0.875rem', lineHeight: 1.7, color: 'var(--text-muted)' }}>{l}</li>
           ))}
         </ul>
       </Section>
@@ -222,7 +222,7 @@ if metric_type == 'intensity': raw_score -= 10  # additional penalty`}</CodeBloc
             },
           ].map(r => (
             <div key={r.doi} style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--muted)',
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--text-muted)',
                 flexShrink: 0, marginTop: '0.25rem' }}>—</span>
               <div>
                 <p style={{ fontSize: '0.875rem', lineHeight: 1.6, marginBottom: '0.25rem' }}>{r.cite}</p>
@@ -236,8 +236,8 @@ if metric_type == 'intensity': raw_score -= 10  # additional penalty`}</CodeBloc
         </div>
       </Section>
 
-      <div style={{ borderTop: '1px solid var(--paper-3)', paddingTop: '2rem' }}>
-        <p style={{ fontSize: '0.875rem', color: 'var(--muted)' }}>
+      <div style={{ borderTop: '1px solid var(--border)', paddingTop: '2rem' }}>
+        <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)' }}>
           Questions about the methodology?{' '}
           <a href="https://github.com/svcii/svcii/issues" target="_blank" rel="noopener noreferrer">
             Open an issue on GitHub

@@ -7,11 +7,11 @@ interface Props {
 }
 
 function scoreColor(s: number | null): string {
-  if (!s) return 'var(--muted)';
-  if (s >= 80) return 'var(--signal-grn)';
-  if (s >= 60) return 'var(--signal-amb)';
-  if (s >= 40) return 'var(--signal-amb)';
-  return 'var(--signal-red)';
+  if (!s) return 'var(--text-muted)';
+  if (s >= 80) return 'var(--green-primary)';
+  if (s >= 60) return 'var(--orange)';
+  if (s >= 40) return 'var(--orange)';
+  return 'var(--red)';
 }
 
 export default function ScoreTicker({ companies }: Props) {
@@ -23,10 +23,10 @@ export default function ScoreTicker({ companies }: Props) {
   return (
     <div
       style={{
-        borderTop: '1px solid var(--paper-3)',
-        borderBottom: '1px solid var(--paper-3)',
+        borderTop: '1px solid var(--border)',
+        borderBottom: '1px solid var(--border)',
         overflow: 'hidden',
-        background: 'var(--paper-2)',
+        background: 'var(--bg-elevated)',
         padding: '0.5rem 0',
       }}
       aria-hidden="true"
@@ -53,14 +53,14 @@ export default function ScoreTicker({ companies }: Props) {
             }}
           >
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6875rem',
-              fontWeight: 500, color: 'var(--ink)', letterSpacing: '0.04em' }}>
+              fontWeight: 500, color: 'var(--text-primary)', letterSpacing: '0.04em' }}>
               {c.ticker}
             </span>
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6875rem',
               color: scoreColor(c.svcii), fontWeight: 600 }}>
               {c.svcii?.toFixed(1)}
             </span>
-            <span style={{ fontSize: '0.5rem', color: 'var(--paper-3)' }}>◆</span>
+            <span style={{ fontSize: '0.5rem', color: 'var(--border)' }}>◆</span>
           </a>
         ))}
       </div>
