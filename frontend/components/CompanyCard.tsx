@@ -10,11 +10,11 @@ interface Props {
 }
 
 function scoreColor(score: number | null): string {
-  if (score == null) return 'var(--text-muted)';
-  if (score >= 80) return 'var(--green-primary)';
-  if (score >= 60) return 'var(--yellow)';
-  if (score >= 40) return 'var(--orange)';
-  return 'var(--red)';
+  if (score == null) return 'var(--text-muted-light)';
+  if (score >= 80) return 'var(--green-deep)';
+  if (score >= 60) return 'var(--classification-inconclusive)';
+  if (score >= 40) return 'var(--classification-warrants)';
+  return 'var(--classification-divergence)';
 }
 
 export default function CompanyCard({ company, rank }: Props) {
@@ -26,17 +26,17 @@ export default function CompanyCard({ company, rank }: Props) {
     >
       <div className="card" style={{ display: 'flex', alignItems: 'center', gap: '1rem', cursor: 'pointer' }}>
         {rank != null && (
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--text-muted)',
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--text-muted-light)',
             minWidth: '1.5rem', textAlign: 'right' }}>
             {rank}
           </span>
         )}
         <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{ fontFamily: 'var(--font-sans)', fontWeight: 600, fontSize: '1rem',
-            color: 'var(--text-primary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+            color: 'var(--text-dark)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
             {company.name}
           </div>
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--text-muted)',
+          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--text-muted-light)',
             marginTop: '0.125rem' }}>
             {company.ticker}
             {company.sector && <> · {company.sector}</>}

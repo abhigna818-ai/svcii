@@ -182,3 +182,24 @@ class SatelliteReading(BaseModel):
     period_end: Optional[str] = None
     latitude: Optional[float] = None
     longitude: Optional[float] = None
+
+
+class BlogPostListItem(BaseModel):
+    slug: str
+    title: str
+    excerpt: Optional[str] = None
+    author: Optional[str] = None
+    published_at: Optional[str] = None
+    category: Optional[str] = None
+    ticker_mentioned: Optional[str] = None
+
+
+class BlogPost(BaseModel):
+    slug: str
+    title: str
+    excerpt: Optional[str] = None
+    content_md: str
+    author: Optional[str] = None
+    published_at: Optional[str] = None
+    category: Optional[str] = None
+    ticker_mentioned: Optional[str] = None

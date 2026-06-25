@@ -12,10 +12,10 @@ type SortKey = 'name' | 'sector' | 'svcii' | 'e_score' | 's_score' | 'msci_esg_r
 type SortDir = 'asc' | 'desc';
 
 function scoreCell(val: number | null) {
-  if (val == null) return <span style={{ color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>—</span>;
-  let color = 'var(--orange)';
-  if (val >= 80) color = 'var(--green-primary)';
-  else if (val < 40) color = 'var(--red)';
+  if (val == null) return <span style={{ color: 'var(--text-muted-light)', fontFamily: 'var(--font-mono)' }}>—</span>;
+  let color = 'var(--classification-warrants)';
+  if (val >= 80) color = 'var(--green-deep)';
+  else if (val < 40) color = 'var(--classification-divergence)';
   return <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 500, color }}>{val.toFixed(1)}</span>;
 }
 
@@ -41,7 +41,7 @@ export default function DataTable({ companies }: Props) {
   }, [companies, sortKey, sortDir]);
 
   function SortIcon({ col }: { col: SortKey }) {
-    if (col !== sortKey) return <span style={{ color: 'var(--border)' }}> ↕</span>;
+    if (col !== sortKey) return <span style={{ color: 'var(--beige-warm)' }}> ↕</span>;
     return <span> {sortDir === 'asc' ? '↑' : '↓'}</span>;
   }
 
@@ -71,23 +71,23 @@ export default function DataTable({ companies }: Props) {
           {sorted.map(c => (
             <tr key={c.ticker} style={{ cursor: 'pointer' }}>
               <td>
-                <Link href={`/company/${c.ticker}`} style={{ textDecoration: 'none', color: 'var(--text-primary)' }}>
+                <Link href={`/company/${c.ticker}`} style={{ textDecoration: 'none', color: 'var(--text-dark)' }}>
                   <div style={{ fontWeight: 500 }}>{c.name}</div>
-                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--text-muted)' }}>{c.ticker}</div>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--text-muted-light)' }}>{c.ticker}</div>
                 </Link>
               </td>
-              <td style={{ fontSize: '0.8125rem', color: 'var(--text-muted)' }}>{c.sector ?? '—'}</td>
+              <td style={{ fontSize: '0.8125rem', color: 'var(--text-muted-light)' }}>{c.sector ?? '—'}</td>
               <td>{scoreCell(c.svcii)}</td>
               <td>{scoreCell(c.e_score)}</td>
-              <td>{c.s_score != null ? scoreCell(c.s_score) : <span style={{ color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>—</span>}</td>
+              <td>{c.s_score != null ? scoreCell(c.s_score) : <span style={{ color: 'var(--text-muted-light)', fontFamily: 'var(--font-mono)' }}>—</span>}</td>
               <td><span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8125rem' }}>{c.msci_esg_rating ?? '—'}</span></td>
-              <td>{c.classification ? <ClassificationBadge classification={c.classification} size="sm" /> : <span style={{ color: 'var(--text-muted)' }}>—</span>}</td>
+              <td>{c.classification ? <ClassificationBadge classification={c.classification} size="sm" /> : <span style={{ color: 'var(--text-muted-light)' }}>—</span>}</td>
             </tr>
           ))}
         </tbody>
       </table>
       {sorted.length === 0 && (
-        <div style={{ padding: '3rem', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.875rem' }}>
+        <div style={{ padding: '3rem', textAlign: 'center', color: 'var(--text-muted-light)', fontSize: '0.875rem' }}>
           No companies match the selected filters.
         </div>
       )}

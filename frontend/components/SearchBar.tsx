@@ -69,8 +69,8 @@ export default function SearchBar() {
           type="search"
           value={query}
           onChange={e => { setQuery(e.target.value); setActiveIdx(-1); }}
-          onFocus={(e) => { e.currentTarget.style.borderColor = 'var(--green-primary)'; results.length > 0 && setOpen(true); }}
-          onBlur={(e) => { e.currentTarget.style.borderColor = 'var(--border)'; }}
+          onFocus={(e) => { e.currentTarget.style.borderColor = 'var(--green-deep)'; results.length > 0 && setOpen(true); }}
+          onBlur={(e) => { e.currentTarget.style.borderColor = 'var(--beige-warm)'; }}
           onKeyDown={handleKeyDown}
           placeholder="Search any S&P 500 company by name or ticker..."
           aria-label="Search companies"
@@ -81,17 +81,17 @@ export default function SearchBar() {
             padding: '0.875rem 1.25rem',
             fontFamily: 'var(--font-sans)',
             fontSize: '1rem',
-            background: 'var(--bg-elevated)',
-            border: '1px solid var(--border)',
+            background: 'var(--bg-surface)',
+            border: '1px solid var(--beige-warm)',
             borderRadius: 'var(--radius)',
-            color: 'var(--text-primary)',
+            color: 'var(--text-dark)',
             outline: 'none',
             transition: 'border-color 150ms',
           }}
         />
         {loading && (
           <span style={{ position: 'absolute', right: '1rem', top: '50%', transform: 'translateY(-50%)',
-            fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+            fontSize: '0.75rem', color: 'var(--text-muted-light)' }}>
             Searching...
           </span>
         )}
@@ -107,7 +107,7 @@ export default function SearchBar() {
             left: 0,
             right: 0,
             background: 'var(--bg-base)',
-            border: '1px solid var(--border)',
+            border: '1px solid var(--beige-warm)',
             borderRadius: 'var(--radius)',
             boxShadow: '0 4px 24px rgba(0,0,0,0.12)',
             zIndex: 200,
@@ -125,24 +125,24 @@ export default function SearchBar() {
                 alignItems: 'center',
                 width: '100%',
                 padding: '0.75rem 1rem',
-                background: i === activeIdx ? 'var(--bg-elevated)' : 'transparent',
+                background: i === activeIdx ? 'var(--bg-surface)' : 'transparent',
                 border: 'none',
-                borderBottom: i < results.length - 1 ? '1px solid var(--border)' : 'none',
+                borderBottom: i < results.length - 1 ? '1px solid var(--beige-warm)' : 'none',
                 cursor: 'pointer',
                 textAlign: 'left',
                 gap: '0.75rem',
                 transition: 'background 100ms',
               }}
-              onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = 'var(--bg-elevated)'; setActiveIdx(i); }}
+              onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = 'var(--bg-surface)'; setActiveIdx(i); }}
               onMouseLeave={e => { if (activeIdx !== i) (e.currentTarget as HTMLButtonElement).style.background = 'transparent'; }}
             >
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8125rem', fontWeight: 500,
-                color: 'var(--green-primary)', minWidth: '3rem' }}>
+                color: 'var(--green-deep)', minWidth: '3rem' }}>
                 {r.ticker}
               </span>
-              <span style={{ flex: 1, fontSize: '0.875rem', color: 'var(--text-primary)' }}>{r.name}</span>
+              <span style={{ flex: 1, fontSize: '0.875rem', color: 'var(--text-dark)' }}>{r.name}</span>
               {r.sector && (
-                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', whiteSpace: 'nowrap' }}>
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted-light)', whiteSpace: 'nowrap' }}>
                   {r.sector}
                 </span>
               )}

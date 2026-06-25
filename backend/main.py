@@ -38,6 +38,7 @@ app.add_middleware(
 async def startup():
     db.init_db()
     db.seed_if_empty()
+    db.seed_blog_if_empty()
 
 
 @app.get("/health")
@@ -269,6 +270,22 @@ def search(request: Request, q: str = Query(..., min_length=1, max_length=100)):
 @limiter.limit("20/minute")
 def stats(request: Request):
     return models.StatsResponse(**db.get_stats())
+
+
+@app.get("/api/blog/posts", response_model=list[models.BlogPostListItem])
+@limiter.limit("20/minute")
+def blog_posts(request: Request):
+    rows = db.get_all_posts()
+    return [models.BlogPostListItem(**dict(r)) for r in rows]
+
+
+@app.get("/api/blog/{slug}", response_model=models.BlogPost)
+@limiter.limit("20/minute")
+def blog_post(request: Request, slug: str):
+    row = db.get_post(slug)
+    if not row:
+        raise HTTPException(status_code=404, detail=f"Post '{slug}' not found")
+    return models.BlogPost(**dict(row))
 
 
 @app.get("/api/methodology", response_model=models.MethodologyResponse)

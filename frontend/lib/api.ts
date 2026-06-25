@@ -8,6 +8,9 @@ import type {
   Leaderboard,
   SearchResult,
   StatsResponse,
+  BlogPostListItem,
+  BlogPost,
+  RiskAssessment,
 } from './types';
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000';
@@ -45,6 +48,10 @@ export function getCompany(ticker: string): Promise<SVCIIScore> {
   return apiFetch<SVCIIScore>(`/api/companies/${ticker}`);
 }
 
+export function getRisk(ticker: string): Promise<RiskAssessment> {
+  return apiFetch<RiskAssessment>(`/api/companies/${ticker}/risk`);
+}
+
 export function getClaims(ticker: string): Promise<ESGClaim[]> {
   return apiFetch<ESGClaim[]>(`/api/companies/${ticker}/claims`);
 }
@@ -71,4 +78,12 @@ export function search(q: string): Promise<SearchResult[]> {
 
 export function getStats(): Promise<StatsResponse> {
   return apiFetch<StatsResponse>('/api/stats');
+}
+
+export function getBlogPosts(): Promise<BlogPostListItem[]> {
+  return apiFetch<BlogPostListItem[]>('/api/blog/posts');
+}
+
+export function getBlogPost(slug: string): Promise<BlogPost> {
+  return apiFetch<BlogPost>(`/api/blog/${slug}`);
 }

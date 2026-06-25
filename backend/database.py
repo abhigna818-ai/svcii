@@ -109,7 +109,87 @@ def init_db() -> None:
                 FOREIGN KEY (ticker) REFERENCES companies(ticker),
                 FOREIGN KEY (facility_id) REFERENCES facilities(id)
             );
+
+            CREATE TABLE IF NOT EXISTS posts (
+                slug TEXT PRIMARY KEY,
+                title TEXT NOT NULL,
+                excerpt TEXT,
+                content_md TEXT,
+                author TEXT,
+                published_at TEXT,
+                category TEXT,
+                ticker_mentioned TEXT
+            );
         """)
+
+
+def seed_blog_if_empty() -> None:
+    """
+    Real, written content (not demo/placeholder copy) — see
+    backend/blog_posts.py for the long-form post bodies. Seeded
+    separately from seed_if_empty() so blog content persists even
+    after the pipeline clears and reloads company/score data.
+    """
+    from blog_posts import POST_1_CONTENT, POST_2_CONTENT, POST_3_CONTENT
+
+    with get_connection() as conn:
+        count = conn.execute("SELECT COUNT(*) FROM posts").fetchone()[0]
+        if count > 0:
+            return
+
+        posts = [
+            (
+                "how-we-verify-methane-claims",
+                "How We Verify Methane Claims Using Satellite Data",
+                "A walkthrough of how SVCII uses Sentinel-5P TROPOMI atmospheric data "
+                "to independently verify corporate methane reduction claims.",
+                POST_1_CONTENT,
+                "SVCII Research",
+                "2024-03-01T00:00:00Z",
+                "methodology",
+                None,
+            ),
+            (
+                "exxonmobil-permian-basin-analysis",
+                "ExxonMobil's Permian Basin Methane Claims: What Satellites Show",
+                "ExxonMobil's methane intensity disclosures are real, but an absolute, "
+                "multi-year satellite trend for the Permian Basin is harder to "
+                "independently verify than a single number suggests.",
+                POST_2_CONTENT,
+                "SVCII Research",
+                "2024-03-08T00:00:00Z",
+                "analysis",
+                "XOM",
+            ),
+            (
+                "asymmetric-information-esg-investing",
+                "The Asymmetric Information Problem in ESG Investing",
+                "Retail investors making ESG-aligned investment decisions are working "
+                "from unverified corporate disclosures. Institutional investors have "
+                "satellite data. We built SVCII to close that gap.",
+                POST_3_CONTENT,
+                "SVCII Research",
+                "2024-03-15T00:00:00Z",
+                "research",
+                None,
+            ),
+        ]
+        conn.executemany(
+            "INSERT OR IGNORE INTO posts VALUES (?,?,?,?,?,?,?,?)", posts
+        )
+
+
+def get_all_posts():
+    with get_connection() as conn:
+        return conn.execute(
+            "SELECT slug, title, excerpt, author, published_at, category, ticker_mentioned "
+            "FROM posts ORDER BY published_at DESC"
+        ).fetchall()
+
+
+def get_post(slug: str):
+    with get_connection() as conn:
+        return conn.execute("SELECT * FROM posts WHERE slug = ?", (slug,)).fetchone()
 
 
 def seed_if_empty() -> None:

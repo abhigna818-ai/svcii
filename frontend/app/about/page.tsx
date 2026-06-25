@@ -9,11 +9,11 @@ export default function AboutPage() {
       {/* Founder */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem',
         alignItems: 'start', marginBottom: '4rem', paddingBottom: '4rem',
-        borderBottom: '1px solid var(--border)' }}>
+        borderBottom: '1px solid var(--beige-warm)' }}>
 
         <div>
           <div style={{ width: '56px', height: '56px', borderRadius: '2px',
-            background: 'var(--green-primary)', display: 'flex', alignItems: 'center',
+            background: 'var(--green-deep)', display: 'flex', alignItems: 'center',
             justifyContent: 'center', marginBottom: '1.25rem' }}>
             <span style={{ fontFamily: 'var(--font-sans)', fontSize: '1.5rem',
               fontWeight: 700, color: 'var(--bg-base)' }}>A</span>
@@ -23,27 +23,27 @@ export default function AboutPage() {
             Abhigna Naik
           </h1>
           <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem',
-            color: 'var(--text-muted)', marginBottom: '1.5rem' }}>
+            color: 'var(--text-muted-light)', marginBottom: '1.5rem' }}>
             CHIREC International School, Hyderabad
           </p>
 
-          <p style={{ fontSize: '0.9375rem', lineHeight: 1.8, color: 'var(--text-muted)' }}>
+          <p style={{ fontSize: '0.9375rem', lineHeight: 1.8, color: 'var(--text-muted-light)' }}>
             I got tired of seeing companies claim they were getting greener while
             nothing seemed to change. Built SVCII to make it easy for anyone to
             check those claims against satellite data — no finance background needed.
           </p>
         </div>
 
-        <div style={{ borderLeft: '3px solid var(--green-primary)', paddingLeft: '2rem',
+        <div style={{ borderLeft: '3px solid var(--green-deep)', paddingLeft: '2rem',
           marginTop: '0.5rem' }}>
           <blockquote style={{ fontFamily: 'var(--font-sans)',
             fontSize: 'clamp(1.1rem, 2vw, 1.375rem)',
-            lineHeight: 1.6, color: 'var(--text-primary)', fontStyle: 'italic',
+            lineHeight: 1.6, color: 'var(--text-dark)', fontStyle: 'italic',
             marginBottom: '1rem' }}>
             "Companies say a lot of things in their sustainability reports.
             Satellites don't."
           </blockquote>
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6875rem', color: 'var(--text-muted)' }}>
+          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6875rem', color: 'var(--text-muted-light)' }}>
             — Abhigna Naik
           </div>
         </div>
@@ -55,12 +55,12 @@ export default function AboutPage() {
         <div>
           <div className="section-label">About the project</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-            <p style={{ fontSize: '0.9375rem', lineHeight: 1.85, color: 'var(--text-primary)' }}>
+            <p style={{ fontSize: '0.9375rem', lineHeight: 1.85, color: 'var(--text-dark)' }}>
               SVCII cross-references S&P 500 ESG claims against publicly available satellite data —
               methane readings from ESA's Sentinel-5P, nighttime lights from NASA's VIIRS, and land
               cover from ESA's WorldCover — and produces a single score from 0 to 100.
             </p>
-            <p style={{ fontSize: '0.9375rem', lineHeight: 1.85, color: 'var(--text-muted)' }}>
+            <p style={{ fontSize: '0.9375rem', lineHeight: 1.85, color: 'var(--text-muted-light)' }}>
               The ESG claim text comes verbatim from real 2023 sustainability reports. The satellite
               data is independent — no company has any input into what the sensors measure. Every
               score is computed the same way for every company, with no manual adjustment.
@@ -68,14 +68,14 @@ export default function AboutPage() {
           </div>
 
           <div className="section-label" style={{ marginTop: '2rem' }}>Why this exists</div>
-          <p style={{ fontSize: '0.9375rem', lineHeight: 1.85, color: 'var(--text-muted)', marginBottom: '1.25rem' }}>
+          <p style={{ fontSize: '0.9375rem', lineHeight: 1.85, color: 'var(--text-muted-light)', marginBottom: '1.25rem' }}>
             Institutional investors can pay for satellite analytics, third-party ESG audits, and
             data-room access that retail investors simply can&apos;t. That gap — large asset managers
             verifying claims with tools individual investors will never have access to — is the
             asymmetric information problem SVCII tries to chip away at: the same independently
             observable satellite data, computed the same way, for free, for anyone.
           </p>
-          <p style={{ fontSize: '0.9375rem', lineHeight: 1.85, color: 'var(--text-muted)' }}>
+          <p style={{ fontSize: '0.9375rem', lineHeight: 1.85, color: 'var(--text-muted-light)' }}>
             That same instinct is what drives PadSeva, a separate ground-level initiative I&apos;m
             part of: corporate accountability doesn&apos;t mean much if it never reaches the
             communities closest to the impact. A sustainability report is only as good as whether
@@ -93,9 +93,9 @@ export default function AboutPage() {
               ['50 companies so far', 'Covering the S&P 500 energy, materials, utilities, and tech sectors. More coming.'],
             ].map(([title, desc]) => (
               <li key={title} style={{ display: 'flex', gap: '0.75rem' }}>
-                <span style={{ color: 'var(--green-primary)', fontWeight: 600, flexShrink: 0 }}>—</span>
-                <span style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: 1.7 }}>
-                  <strong style={{ color: 'var(--text-primary)', fontWeight: 500 }}>{title}.</strong>{' '}{desc}
+                <span style={{ color: 'var(--green-deep)', fontWeight: 600, flexShrink: 0 }}>—</span>
+                <span style={{ fontSize: '0.875rem', color: 'var(--text-muted-light)', lineHeight: 1.7 }}>
+                  <strong style={{ color: 'var(--text-dark)', fontWeight: 500 }}>{title}.</strong>{' '}{desc}
                 </span>
               </li>
             ))}
@@ -104,10 +104,10 @@ export default function AboutPage() {
 
         {/* Sidebar */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-          <div style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border)',
+          <div style={{ background: 'var(--bg-surface)', border: '1px solid var(--beige-warm)',
             borderRadius: '2px', padding: '1.25rem' }}>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.5625rem', fontWeight: 600,
-              letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--text-muted)',
+              letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--text-muted-light)',
               marginBottom: '1rem' }}>
               Quick facts
             </div>
@@ -118,10 +118,10 @@ export default function AboutPage() {
               ['Cost',              'Free. Always.'],
             ].map(([label, value]) => (
               <div key={label} style={{ display: 'flex', justifyContent: 'space-between',
-                padding: '0.5rem 0', borderBottom: '1px solid var(--border)', gap: '1rem' }}>
-                <span style={{ fontSize: '0.8125rem', color: 'var(--text-muted)' }}>{label}</span>
+                padding: '0.5rem 0', borderBottom: '1px solid var(--beige-warm)', gap: '1rem' }}>
+                <span style={{ fontSize: '0.8125rem', color: 'var(--text-muted-light)' }}>{label}</span>
                 <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8125rem',
-                  color: 'var(--text-primary)', fontWeight: 500 }}>{value}</span>
+                  color: 'var(--text-dark)', fontWeight: 500 }}>{value}</span>
               </div>
             ))}
           </div>
@@ -132,25 +132,25 @@ export default function AboutPage() {
       <div style={{ marginBottom: '4rem' }}>
         <div className="section-label">How to use it</div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2px',
-          background: 'var(--border)', border: '1px solid var(--border)',
+          background: 'var(--beige-warm)', border: '1px solid var(--beige-warm)',
           borderRadius: '2px', overflow: 'hidden' }}>
           {[
             ['01', 'Search a company', 'Type any S&P 500 company name or ticker into the search bar.'],
             ['02', 'Read the score', 'SVCII 0–100. Below 40 means the satellite data significantly contradicts what the company claims.'],
             ['03', 'Check the claims', 'Every score links to the actual verbatim quotes from the company\'s sustainability report.'],
           ].map(([num, title, desc]) => (
-            <div key={num} style={{ background: 'var(--bg-elevated)', padding: '1.5rem' }}>
+            <div key={num} style={{ background: 'var(--bg-surface)', padding: '1.5rem' }}>
               <div style={{ fontFamily: 'var(--font-sans)', fontSize: '2rem', fontWeight: 700,
-                color: 'var(--border)', lineHeight: 1, marginBottom: '0.75rem' }}>{num}</div>
+                color: 'var(--beige-warm)', lineHeight: 1, marginBottom: '0.75rem' }}>{num}</div>
               <div style={{ fontWeight: 600, fontSize: '0.875rem', marginBottom: '0.375rem' }}>{title}</div>
-              <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', lineHeight: 1.7 }}>{desc}</p>
+              <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted-light)', lineHeight: 1.7 }}>{desc}</p>
             </div>
           ))}
         </div>
       </div>
 
       {/* CTA */}
-      <div style={{ background: 'var(--green-primary)', borderRadius: '2px', padding: '2rem 2.5rem',
+      <div style={{ background: 'var(--green-deep)', borderRadius: '2px', padding: '2rem 2.5rem',
         display: 'flex', justifyContent: 'space-between', alignItems: 'center',
         flexWrap: 'wrap', gap: '1.5rem' }}>
         <div>
@@ -164,7 +164,7 @@ export default function AboutPage() {
         </div>
         <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
           <Link href="/" style={{ padding: '0.75rem 1.25rem', background: 'var(--bg-base)',
-            color: 'var(--green-primary)', borderRadius: '2px', fontWeight: 600, fontSize: '0.875rem',
+            color: 'var(--green-deep)', borderRadius: '2px', fontWeight: 600, fontSize: '0.875rem',
             textDecoration: 'none' }}>
             Search →
           </Link>

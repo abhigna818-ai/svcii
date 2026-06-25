@@ -2,16 +2,18 @@
 import { useEffect, useRef } from 'react';
 import type { CompanyListItem } from '@/lib/types';
 
+type TickerCompany = Pick<CompanyListItem, 'ticker' | 'name' | 'sector' | 'svcii' | 'classification'>;
+
 interface Props {
-  companies: CompanyListItem[];
+  companies: TickerCompany[];
 }
 
 function scoreColor(s: number | null): string {
-  if (!s) return 'var(--text-muted)';
-  if (s >= 80) return 'var(--green-primary)';
-  if (s >= 60) return 'var(--orange)';
-  if (s >= 40) return 'var(--orange)';
-  return 'var(--red)';
+  if (!s) return 'var(--text-muted-light)';
+  if (s >= 80) return 'var(--green-deep)';
+  if (s >= 60) return 'var(--classification-warrants)';
+  if (s >= 40) return 'var(--classification-warrants)';
+  return 'var(--classification-divergence)';
 }
 
 export default function ScoreTicker({ companies }: Props) {
@@ -23,10 +25,10 @@ export default function ScoreTicker({ companies }: Props) {
   return (
     <div
       style={{
-        borderTop: '1px solid var(--border)',
-        borderBottom: '1px solid var(--border)',
+        borderTop: '1px solid var(--beige-warm)',
+        borderBottom: '1px solid var(--beige-warm)',
         overflow: 'hidden',
-        background: 'var(--bg-elevated)',
+        background: 'var(--bg-surface)',
         padding: '0.5rem 0',
       }}
       aria-hidden="true"
@@ -53,14 +55,14 @@ export default function ScoreTicker({ companies }: Props) {
             }}
           >
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6875rem',
-              fontWeight: 500, color: 'var(--text-primary)', letterSpacing: '0.04em' }}>
+              fontWeight: 500, color: 'var(--text-dark)', letterSpacing: '0.04em' }}>
               {c.ticker}
             </span>
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6875rem',
               color: scoreColor(c.svcii), fontWeight: 600 }}>
               {c.svcii?.toFixed(1)}
             </span>
-            <span style={{ fontSize: '0.5rem', color: 'var(--border)' }}>◆</span>
+            <span style={{ fontSize: '0.5rem', color: 'var(--beige-warm)' }}>◆</span>
           </a>
         ))}
       </div>

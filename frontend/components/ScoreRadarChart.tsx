@@ -27,7 +27,7 @@ export default function ScoreRadarChart({
   return (
     <ResponsiveContainer width="100%" height={220}>
       <RadarChart data={data} margin={{ top: 10, right: 30, bottom: 10, left: 30 }}>
-        <PolarGrid stroke="var(--border)" />
+        <PolarGrid stroke="var(--beige-warm)" />
         <PolarAngleAxis
           dataKey="subject"
           tick={{ fontFamily: 'IBM Plex Sans', fontSize: 9, fill: '#6B6560' }}
@@ -38,15 +38,15 @@ export default function ScoreRadarChart({
             fontFamily: 'IBM Plex Mono',
             fontSize: '0.75rem',
             background: 'var(--bg-base)',
-            border: '1px solid var(--border)',
+            border: '1px solid var(--beige-warm)',
             borderRadius: '2px',
           }}
         />
         <Radar
           name="Score"
           dataKey="pct"
-          stroke="var(--green-primary)"
-          fill="var(--green-primary)"
+          stroke="var(--green-deep)"
+          fill="var(--green-deep)"
           fillOpacity={0.15}
           strokeWidth={1.5}
         />

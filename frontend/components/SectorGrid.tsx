@@ -7,10 +7,10 @@ interface Props {
 }
 
 function scoreColor(score: number): string {
-  if (score >= 80) return 'var(--green-primary)';
-  if (score >= 60) return 'var(--orange)';
-  if (score >= 40) return 'var(--orange)';
-  return 'var(--red)';
+  if (score >= 80) return 'var(--green-deep)';
+  if (score >= 60) return 'var(--classification-warrants)';
+  if (score >= 40) return 'var(--classification-warrants)';
+  return 'var(--classification-divergence)';
 }
 
 export default function SectorGrid({ sectors }: Props) {
@@ -20,8 +20,8 @@ export default function SectorGrid({ sectors }: Props) {
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
         gap: '1px',
-        background: 'var(--border)',
-        border: '1px solid var(--border)',
+        background: 'var(--beige-warm)',
+        border: '1px solid var(--beige-warm)',
         borderRadius: 'var(--radius)',
         overflow: 'hidden',
       }}
@@ -34,15 +34,15 @@ export default function SectorGrid({ sectors }: Props) {
         >
           <div
             style={{
-              background: 'var(--bg-elevated)',
+              background: 'var(--bg-surface)',
               padding: '1.25rem',
               transition: 'background 150ms',
               cursor: 'pointer',
             }}
-            onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.background = 'var(--border)'; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.background = 'var(--bg-elevated)'; }}
+            onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.background = 'var(--beige-warm)'; }}
+            onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.background = 'var(--bg-surface)'; }}
           >
-            <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '0.5rem',
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-muted-light)', marginBottom: '0.5rem',
               fontWeight: 500, lineHeight: 1.3 }}>
               {s.sector}
             </div>
@@ -50,7 +50,7 @@ export default function SectorGrid({ sectors }: Props) {
               color: scoreColor(s.avg_svcii), lineHeight: 1 }}>
               {s.avg_svcii.toFixed(1)}
             </div>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.625rem', color: 'var(--text-muted)',
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.625rem', color: 'var(--text-muted-light)',
               marginTop: '0.375rem' }}>
               {s.company_count} co. · avg SVCII
             </div>

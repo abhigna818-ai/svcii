@@ -10,10 +10,10 @@ interface Props {
 }
 
 function scoreColor(c: Classification | null): string {
-  if (!c) return 'var(--text-primary)';
-  if (c === 'CONSISTENT') return 'var(--green-primary)';
-  if (c === 'MAJOR DIVERGENCE') return 'var(--red)';
-  return 'var(--orange)';
+  if (!c) return 'var(--text-dark)';
+  if (c === 'CONSISTENT') return 'var(--green-deep)';
+  if (c === 'MAJOR DIVERGENCE') return 'var(--classification-divergence)';
+  return 'var(--classification-warrants)';
 }
 
 export default function ScoreDisplay({ score, classification, label, size = 'lg' }: Props) {
@@ -24,7 +24,7 @@ export default function ScoreDisplay({ score, classification, label, size = 'lg'
     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'flex-start' }}>
       {label && (
         <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.625rem', fontWeight: 600,
-          letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--text-muted)' }}>
+          letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--text-muted-light)' }}>
           {label}
         </span>
       )}

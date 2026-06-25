@@ -6,21 +6,21 @@ interface Props {
   size?: 'sm' | 'md';
 }
 
-const MAP: Record<Classification, { label: string; color: string }> = {
-  CONSISTENT:              { label: 'Consistent',          color: 'var(--green-primary)' },
-  INCONCLUSIVE:            { label: 'Inconclusive',        color: 'var(--yellow)' },
-  'WARRANTS INVESTIGATION':{ label: 'Warrants Investigation', color: 'var(--orange)' },
-  'MAJOR DIVERGENCE':      { label: 'Major Divergence',    color: 'var(--red)' },
+const MAP: Record<Classification, { label: string; cls: string }> = {
+  CONSISTENT:              { label: 'Consistent',          cls: 'badge-consistent' },
+  INCONCLUSIVE:            { label: 'Inconclusive',        cls: 'badge-inconclusive' },
+  'WARRANTS INVESTIGATION':{ label: 'Warrants Investigation', cls: 'badge-warrants' },
+  'MAJOR DIVERGENCE':      { label: 'Major Divergence',    cls: 'badge-divergence' },
 };
 
 export default function ClassificationBadge({ classification, size = 'md' }: Props) {
-  const { label, color } = MAP[classification] ?? { label: classification, color: 'var(--text-muted)' };
-  const fontSize = size === 'sm' ? '0.5625rem' : '0.625rem';
+  const { label, cls } = MAP[classification] ?? { label: classification, cls: '' };
+  const fontSize = size === 'sm' ? '0.625rem' : '0.6875rem';
 
   return (
     <span
-      className="badge"
-      style={{ color, borderColor: color, fontSize }}
+      className={`badge ${cls}`}
+      style={{ fontSize }}
       aria-label={`Classification: ${label}`}
     >
       {label}

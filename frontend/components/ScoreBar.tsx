@@ -13,7 +13,7 @@ export default function ScoreBar({
   label,
   value,
   max = 100,
-  color = 'var(--green-primary)',
+  color = 'var(--green-deep)',
   showValue = true,
   suffix = '',
 }: Props) {
@@ -22,9 +22,9 @@ export default function ScoreBar({
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.375rem' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-        <span style={{ fontSize: '0.8125rem', color: 'var(--text-primary)' }}>{label}</span>
+        <span style={{ fontSize: '0.8125rem', color: 'var(--text-dark)' }}>{label}</span>
         {showValue && (
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--text-muted-light)' }}>
             {value.toFixed(1)}{suffix}
           </span>
         )}
@@ -32,7 +32,7 @@ export default function ScoreBar({
       <div
         style={{
           height: '6px',
-          background: 'var(--border)',
+          background: 'var(--beige-warm)',
           borderRadius: '1px',
           overflow: 'hidden',
         }}

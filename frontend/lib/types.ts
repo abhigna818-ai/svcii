@@ -143,3 +143,25 @@ export interface StatsResponse {
   major_divergence_count: number;
   claims_verified: number;
 }
+
+export interface BlogPostListItem {
+  slug: string;
+  title: string;
+  excerpt: string | null;
+  author: string | null;
+  published_at: string | null;
+  category: string | null;
+  ticker_mentioned: string | null;
+}
+
+export interface BlogPost extends BlogPostListItem {
+  content_md: string;
+}
+
+export interface RiskAssessment {
+  ticker: string;
+  regulatory_risk: 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
+  risk_factors: string[];
+  esg_fund_exposure_note: string;
+  satellite_vs_claim_summary: string;
+}
