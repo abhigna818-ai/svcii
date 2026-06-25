@@ -1,6 +1,6 @@
 # SVCII — Satellite-Verified Corporate Impact Index
 
-Built by **Abhigna Naik**, a 17-year-old student from Bangalore, India.
+Built by **Abhigna Naik**, a 17-year-old student from India.
 
 SVCII is a free greenwashing detection platform that cross-references S&P 500 company ESG claims against independently observable NASA and ESA satellite data. Every score is computed from public datasets and is fully reproducible. No subscription. No paywall.
 
